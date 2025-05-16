@@ -1,0 +1,26 @@
+.banner {
+  display: flex;
+  justify-content: center;
+  gap: 41px;
+  background-color: var(--color-black);
+  border-radius: 8px;
+
+  &__text {
+    font-size: 32px;
+    color: var(--color-none);
+  }
+  &__text h2 {
+    color: white;
+  }
+
+  &__text p {
+    margin: 0;
+  }
+  &__accent {
+    text-transform: uppercase;
+    color: var(--color-yelow);
+  }
+  &__image {
+    margin-top: 36px;
+  }
+}

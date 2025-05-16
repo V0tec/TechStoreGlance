@@ -1,0 +1,58 @@
+.header {
+  display: flex;
+  position: relative;
+  gap: 88px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+  padding: 17px 80px;
+  border-bottom: var(--color-gray) solid 1px;
+  box-sizing: border-box;
+
+  &__logo {
+    background: var(--color-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    font-family: "Montserrat", serif;
+  }
+
+  &__search {
+    width: 100%;
+    background: var(--color-none);
+    padding: 10.5px 16px 10.5px;
+    border: 0;
+    border-radius: 8px;
+  }
+
+  &__tabBar {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__tabBar li {
+    display: grid;
+  }
+
+  &__tabBar li button {
+    padding: 10px;
+    border-radius: 8px;
+    border-width: 0px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__tabBar li p {
+    font-size: 14px;
+    color: var(--color-gray-dark);
+    margin: 0;
+  }
+}

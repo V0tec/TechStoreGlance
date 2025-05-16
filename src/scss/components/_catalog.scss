@@ -1,0 +1,21 @@
+.catalogMenu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    &__card {
+        cursor: pointer;
+        text-align: center;
+        font-size: 20px;
+        color: var(--color-black);
+    }
+    &__card-image {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        width: 200px;
+        height: 211px;
+        border-radius: 8px;
+        background-color: var(--color-blue-light);
+    }
+}
