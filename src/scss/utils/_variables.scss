@@ -1,0 +1,20 @@
+:root {
+    --color-blue: #091D9E;
+    --color-purple: #750DC5;
+    --color-black: #0C0C0C;
+    --color-gray: #C1C1C1;
+    --color-white: #F6F6F6;
+    --color-gray-dark: #454545;
+    --color-blue-light: #BCC5FF;
+    --color-grey-dark-lite: #ABABAB;
+    --color-yelow: #EBBA1A;
+    --color-green: #169B00;
+    --color-passive: #505050;
+    --color-none: #DEDEDE;
+    --color-red: #FF0000;
+    --color-gradient: linear-gradient(#260DC1, #59006F);
+}
+
+$bp-mobile: 480px;
+$bp-tablet: 768px;
+$bp-desktop: 1280px;

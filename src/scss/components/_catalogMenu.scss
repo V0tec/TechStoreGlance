@@ -1,0 +1,145 @@
+.catalog-section h1 {
+  margin-bottom: 20px;
+}
+
+.catalogMenu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  &__slider {
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  &__slide {
+    width: auto !important;
+    max-width: 200px;
+  }
+
+  &__card {
+    cursor: pointer;
+    text-align: center;
+    font-size: 20px;
+    color: var(--color-black);
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+
+  &__card-image {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 211px;
+    border-radius: 8px;
+    background-color: var(--color-blue-light);
+    overflow: hidden;
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+  }
+}
+
+/* Swiper navigation buttons */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #333;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  width: 36px !important;
+  height: 36px !important;
+
+  &::after {
+    font-size: 18px !important;
+  }
+}
+
+.swiper-button-disabled {
+  opacity: 0 !important;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .catalogMenu {
+    gap: 12px;
+
+    &__card {
+      font-size: 18px;
+    }
+
+    &__card-image {
+      width: 170px;
+      height: 180px;
+    }
+
+    &__slide {
+      max-width: 160px;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .catalogMenu {
+    gap: 10px;
+
+    &__card {
+      font-size: 16px;
+    }
+
+    &__card-image {
+      width: 140px;
+      height: 150px;
+    }
+
+    &__slide {
+      max-width: 140px;
+    }
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 30px !important;
+    height: 30px !important;
+
+    &::after {
+      font-size: 14px !important;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .catalogMenu {
+    &__card-image {
+      width: 120px;
+      height: 130px;
+    }
+
+    &__slide {
+      max-width: 120px;
+    }
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 26px !important;
+    height: 26px !important;
+
+    &::after {
+      font-size: 12px !important;
+    }
+  }
+}

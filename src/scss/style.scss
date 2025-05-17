@@ -1,0 +1,33 @@
+@use "./components/header" as *;
+@use "./utils/variables" as *;
+@use "./components/banner" as *;
+@use "./components/catalog" as *;
+@use "./components/stocks" as *;
+@use "./components/modalCatalog" as *;
+@use "./components/catalogMenu" as *;
+@use "./components/loginPage" as *;
+@use "./components/catalogCard" as *;
+@use "./components/productPage" as *;
+@use "./components/cartPage" as *;
+@use "./components/register" as *;
+@use "./components/profilePage" as *;
+@use "./components/searchPage" as *;
+
+* {
+  font-family: "Roboto", serif;
+  font-weight: 400;
+}
+
+section {
+  margin: 0 clamp(12px, 5vw, 80px);
+}
+
+h2 {
+  margin: 32px 0 20px 0;
+  font-size: 40px;
+  color: black;
+}
+
+li {
+  list-style: none;
+}

@@ -1,0 +1,19 @@
+.stocks {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 992px) {
+  .stocks {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .stocks {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
