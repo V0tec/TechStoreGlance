@@ -55,9 +55,11 @@ function Header({}: HeaderProps) {
   const handleCatalogButtonClick = () => {
     if (catalogButtonRef.current) {
       const rect = catalogButtonRef.current.getBoundingClientRect();
+      // Покращена логіка позиціонування модального вікна,
+      // щоб воно було краще вирівняне з кнопкою каталогу
       setModalPosition({
         top: rect.bottom + window.scrollY,
-        left: isMobile ? 0 : rect.left + window.scrollX,
+        left: isMobile ? 0 : Math.max(rect.left + window.scrollX - 10, 0),
       });
     }
     setIsModalActive(true);

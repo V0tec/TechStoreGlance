@@ -31,42 +31,47 @@ function CatalogMenu() {
   return (
     <div className="catalog-section">
       <h1>Каталог</h1>
-      <nav className="catalogMenu">
-        <Swiper
-          modules={[Navigation, FreeMode]}
-          slidesPerView="auto"
-          spaceBetween={16}
-          navigation
-          freeMode={true}
-          className="catalogMenu__slider"
-          breakpoints={{
-            320: {
-              spaceBetween: 10,
-            },
-            480: {
-              spaceBetween: 12,
-            },
-            768: {
-              spaceBetween: 16,
-            },
-          }}
-        >
-          {categories.map((category, index) => (
-            <SwiperSlide
-              key={index}
-              className="catalogMenu__slide"
-              style={{ width: "auto" }}
-            >
-              <div
-                className="catalogMenu__card"
-                onClick={() => handleCategoryClick(category.url)}
+      <div className="catalog-container">
+        <nav className="catalogMenu">
+          <Swiper
+            modules={[Navigation, FreeMode]}
+            slidesPerView="auto"
+            spaceBetween={16}
+            navigation
+            freeMode={true}
+            className="catalogMenu__slider"
+            breakpoints={{
+              320: {
+                spaceBetween: 10,
+              },
+              480: {
+                spaceBetween: 12,
+              },
+              768: {
+                spaceBetween: 16,
+              },
+            }}
+          >
+            {categories.map((category, index) => (
+              <SwiperSlide
+                key={index}
+                className="catalogMenu__slide"
+                style={{ width: "auto" }}
               >
-                <CatalogMenuCard name={category.name} image={category.image} />
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </nav>
+                <div
+                  className="catalogMenu__card"
+                  onClick={() => handleCategoryClick(category.url)}
+                >
+                  <CatalogMenuCard
+                    name={category.name}
+                    image={category.image}
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </nav>
+      </div>
     </div>
   );
 }
