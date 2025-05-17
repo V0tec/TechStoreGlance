@@ -1,5 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import CatalogMenuCard from "./CatalogMenuCards";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, FreeMode } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/free-mode";
 import smartphoneImage from "../assets/catalog/Smartphone.png";
 import laptopImage from "../assets/catalog/Laptop.png";
 import computerImage from "../assets/catalog/Computer.png";
@@ -24,16 +29,45 @@ function CatalogMenu() {
   };
 
   return (
-    <>
+    <div className="catalog-section">
       <h1>Каталог</h1>
       <nav className="catalogMenu">
-        {categories.map((category, index) => (
-          <div key={index} onClick={() => handleCategoryClick(category.url)} >
-            <CatalogMenuCard name={category.name} image={category.image} />
-          </div>
-        ))}
+        <Swiper
+          modules={[Navigation, FreeMode]}
+          slidesPerView="auto"
+          spaceBetween={16}
+          navigation
+          freeMode={true}
+          className="catalogMenu__slider"
+          breakpoints={{
+            320: {
+              spaceBetween: 10,
+            },
+            480: {
+              spaceBetween: 12,
+            },
+            768: {
+              spaceBetween: 16,
+            },
+          }}
+        >
+          {categories.map((category, index) => (
+            <SwiperSlide
+              key={index}
+              className="catalogMenu__slide"
+              style={{ width: "auto" }}
+            >
+              <div
+                className="catalogMenu__card"
+                onClick={() => handleCategoryClick(category.url)}
+              >
+                <CatalogMenuCard name={category.name} image={category.image} />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </nav>
-    </>
+    </div>
   );
 }
 

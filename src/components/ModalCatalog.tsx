@@ -1,17 +1,18 @@
 import { useNavigate } from "react-router-dom";
-import { categories } from "./categories"; // імпорт масиву
-// import "./ModalCatalog.css"; // стилі
+import { categories } from "./categories"; // імпорт масиву категорій
 
 interface ModalCatalogProps {
   active: boolean;
   setActive: (active: boolean) => void;
   position: { top: number; left: number };
+  isMobile?: boolean;
 }
 
 const ModalCatalog: React.FC<ModalCatalogProps> = ({
   active,
   setActive,
   position,
+  isMobile = false,
 }) => {
   const navigate = useNavigate();
 
@@ -26,11 +27,14 @@ const ModalCatalog: React.FC<ModalCatalogProps> = ({
       onClick={() => setActive(false)}
     >
       <div
-        className="modalCatalog__content"
+        className={`modalCatalog__content ${
+          isMobile ? "modalCatalog__content--mobile" : ""
+        }`}
         onClick={(e) => e.stopPropagation()}
         style={{
           top: `${position.top}px`,
-          left: `${position.left}px`,
+          left: isMobile ? "50%" : `${position.left}px`,
+          transform: isMobile ? "translateX(-50%)" : "none",
         }}
       >
         <ul className="modalCatalog__list">

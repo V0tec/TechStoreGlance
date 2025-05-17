@@ -1,0 +1,51 @@
+.catalog-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  background: white;
+  transition: transform 0.2s;
+}
+
+.catalog-card:hover {
+  transform: scale(1.05);
+}
+
+.catalog-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.discount {
+  background: yellow;
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.available {
+  color: green;
+}
+
+.not-available {
+  color: red;
+}
+
+.cart-button {
+  background: blue;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cart-button:hover {
+  background: darkblue;
+}

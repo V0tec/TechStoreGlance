@@ -1,13 +1,39 @@
+/* Стилі для хедера та його компонентів з адаптивністю */
+
 .header {
   display: flex;
   position: relative;
-  gap: 88px;
+  gap: 40px;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   margin-bottom: 40px;
-  padding: 17px 80px;
+  padding: 17px 40px;
   border-bottom: var(--color-gray) solid 1px;
   box-sizing: border-box;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    padding: 12px 20px;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+
+    @media (max-width: 768px) {
+      order: 1;
+      width: auto;
+    }
+
+    @media (max-width: 400px) {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
 
   &__logo {
     background: var(--color-gradient);
@@ -16,14 +42,76 @@
     -webkit-text-fill-color: transparent;
     text-transform: uppercase;
     font-family: "Montserrat", serif;
+    font-size: 24px;
+
+    @media (max-width: 768px) {
+      font-size: 20px;
+    }
+  }
+
+  &__search-form {
+    position: relative;
+    flex: 1;
+    max-width: 500px;
+    display: flex;
+
+    @media (max-width: 768px) {
+      order: 2;
+      width: 100%;
+    }
+
+    @media (max-width: 400px) {
+      order: 3;
+      width: 100%;
+      margin-top: 12px;
+    }
   }
 
   &__search {
     width: 100%;
     background: var(--color-none);
-    padding: 10.5px 16px 10.5px;
-    border: 0;
+    padding: 10.5px 44px 10.5px 16px;
+    border: 1px solid var(--color-gray);
     border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+
+    @media (max-width: 768px) {
+      padding: 8px 44px 8px 12px;
+      font-size: 14px;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: #007bff;
+      box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+    }
+  }
+
+  &__search-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__search-icon {
+    width: 20px;
+    height: 20px;
+    fill: var(--color-gray-dark);
+    transition: fill 0.3s ease;
+
+    &:hover {
+      fill: #007bff;
+    }
   }
 
   &__tabBar {
@@ -31,28 +119,167 @@
     gap: 32px;
     align-items: center;
     justify-content: center;
+    margin-top: 1px;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+
+    &--mobile {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: 100%;
+      background: #fff;
+      border-bottom: 1px solid var(--color-gray);
+      z-index: 990;
+      padding: 10px 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      order: 4;
+    }
   }
 
   &__tabBar li {
     display: grid;
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
   }
 
-  &__tabBar li button {
+  &__burger-button {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px 10px 4px 10px;
+    z-index: 10;
+
+    @media (max-width: 768px) {
+      display: block;
+      order: 2;
+    }
+
+    @media (max-width: 400px) {
+      order: 2;
+    }
+  }
+
+  &__burger-icon-svg {
+    width: 24px;
+    height: 24px;
+    color: var(--color-gray-dark);
+  }
+}
+
+/* Стилі для елементів таббару */
+.tabBarItem {
+  &__button {
     padding: 10px;
     border-radius: 8px;
     border-width: 0px;
     box-sizing: border-box;
     transition: transform 0.3s ease;
     cursor: pointer;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     &:hover {
       transform: scale(1.05);
+      background: #f5f5f5;
+    }
+
+    &--mobile {
+      width: 100%;
+      padding: 15px 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      border-radius: 0;
+
+      &:hover {
+        transform: none;
+        background: #f5f5f5;
+      }
     }
   }
 
-  &__tabBar li p {
-    font-size: 14px;
-    color: var(--color-gray-dark);
+  &__text--mobile {
+    font-size: 16px;
+    font-weight: 500;
     margin: 0;
+    text-align: left;
+  }
+}
+
+/* Стилі для модального вікна каталогу */
+.modalCatalog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 999;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    min-width: 220px;
+    position: fixed;
+    z-index: 1000;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    animation: fadeIn 0.2s ease;
+
+    &--mobile {
+      width: 90%;
+      max-width: 300px;
+      padding: 15px;
+    }
+
+    ul.modalCatalog__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        padding: 10px 14px;
+        cursor: pointer;
+        transition: background 0.2s ease, color 0.2s ease;
+        border-radius: 6px;
+
+        &:hover {
+          background-color: #f2f2f2;
+          color: #007bff;
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }

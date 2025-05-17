@@ -2,7 +2,7 @@ import { useAuth } from "./AuthContext";
 import { useNavigate } from "react-router-dom";
 
 function ProfilePage() {
-  const { logout } = useAuth();
+  const { logout, firstName } = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -11,10 +11,10 @@ function ProfilePage() {
   };
 
   return (
-    <div>
+    <div className="profile-page">
       <h2>Профіль користувача</h2>
       <p>
-        Ви авторизовані як: <strong>admin</strong>
+        Ви авторизовані як: <strong>{firstName || "користувач"}</strong>
       </p>
       <button onClick={handleLogout}>Вийти</button>
     </div>

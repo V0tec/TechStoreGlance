@@ -14,6 +14,9 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Register from "./components/Register";
 import CartPage from "./components/CartPage";
 import NotFoundPage from "./components/NotFoundPage";
+import "swiper/css";
+import "swiper/css/navigation";
+import SearchPage from "./pages/SearchPage";
 
 function App() {
   const [catalogActive, setCatalogActive] = useState(false);
@@ -74,6 +77,7 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route path="/search" element={<SearchPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </section>

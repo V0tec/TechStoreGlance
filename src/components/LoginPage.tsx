@@ -29,7 +29,7 @@ function LoginPage() {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Логін"
+          placeholder="Пошта"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />

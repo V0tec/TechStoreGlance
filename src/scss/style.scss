@@ -9,6 +9,9 @@
 @use "./components/catalogCard" as *;
 @use "./components/productPage" as *;
 @use "./components/cartPage" as *;
+@use "./components/register" as *;
+@use "./components/profilePage" as *;
+@use "./components/searchPage" as *;
 
 * {
   font-family: "Roboto", serif;
@@ -16,7 +19,7 @@
 }
 
 section {
-  margin: 0 80px;
+  margin: 0 clamp(12px, 5vw, 80px);
 }
 
 h2 {
@@ -27,92 +30,4 @@ h2 {
 
 li {
   list-style: none;
-}
-
-.catalog {
-  padding: 20px;
-}
-
-.catalog h2 {
-  text-align: center;
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.catalog-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
-.catalog-card {
-  border: 1px solid #ddd;
-  padding: 15px;
-  border-radius: 10px;
-  text-align: center;
-  background: white;
-  transition: transform 0.2s;
-}
-
-.catalog-card:hover {
-  transform: scale(1.05);
-}
-
-.catalog-card img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-
-.discount {
-  background: yellow;
-  padding: 5px;
-  border-radius: 5px;
-  font-weight: bold;
-}
-
-.price {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.available {
-  color: green;
-}
-
-.not-available {
-  color: red;
-}
-
-.cart-button {
-  background: blue;
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.cart-button:hover {
-  background: darkblue;
-}
-
-// КатегориПэйдж
-
-.breadcrumbs {
-  font-size: 16px;
-  margin-bottom: 10px;
-}
-
-.breadcrumbs a {
-  text-decoration: none;
-  color: blue;
-}
-
-.breadcrumbs a:hover {
-  text-decoration: underline;
-}
-
-.breadcrumbs span {
-  font-weight: bold;
 }

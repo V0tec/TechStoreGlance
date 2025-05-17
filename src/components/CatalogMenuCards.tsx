@@ -1,17 +1,17 @@
-type CatalogCardProps = {
-    name: string;
-    image: string;
-  };
-
-function CatalogCard ({ name, image }: CatalogCardProps) {
-    return (
-        <li className="catalogMenu__card">
-            <div className="catalogMenu__card-image">
-            <img src={image} alt={name} />
-            </div>
-            <p>{name}</p>
-        </li>
-    )
+interface CatalogMenuCardProps {
+  name: string;
+  image: string;
 }
 
-export default CatalogCard
+function CatalogMenuCard({ name, image }: CatalogMenuCardProps) {
+  return (
+    <div className="catalogMenu__card">
+      <div className="catalogMenu__card-image">
+        <img src={image} alt={name} />
+      </div>
+      <div className="catalogMenu__card-title">{name}</div>
+    </div>
+  );
+}
+
+export default CatalogMenuCard;

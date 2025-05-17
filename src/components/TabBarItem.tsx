@@ -1,21 +1,34 @@
 import { RefObject, MutableRefObject } from "react";
 
-type TabBarItemProps = {
-    name: string
-    image: string
-    onClick?: () => void;
-    buttonRef?: RefObject<HTMLButtonElement> | MutableRefObject<HTMLButtonElement | null>;
-};
-
-function TabBarItem ({ name, image, onClick, buttonRef } : TabBarItemProps) {
-    return (
-        <li>
-            <button type="button" ref={buttonRef} onClick={onClick}>
-                <img src={image} alt={name} />
-                <p>{name}</p>
-            </button>
-        </li>
-    )
+interface TabBarItemProps {
+  name: string;
+  image?: string;
+  onClick?: () => void;
+  buttonRef?: React.RefObject<HTMLButtonElement>;
+  isMobile?: boolean;
 }
 
-export default TabBarItem
+const TabBarItem: React.FC<TabBarItemProps> = ({
+  name,
+  image,
+  onClick,
+  buttonRef,
+  isMobile = false,
+}) => {
+  return (
+    <li>
+      <button
+        onClick={onClick}
+        ref={buttonRef}
+        className={`tabBarItem__button ${
+          isMobile ? "tabBarItem__button--mobile" : ""
+        }`}
+      >
+        {!isMobile && image && <img src={image} alt={name} />}
+        <p className={isMobile ? "tabBarItem__text--mobile" : ""}>{name}</p>
+      </button>
+    </li>
+  );
+};
+
+export default TabBarItem;
