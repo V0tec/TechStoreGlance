@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import CatalogCard from "../components/CatalogCard";
 import { useProducts } from "../utils/productsService";
 
 function SearchPage() {
   const location = useLocation();
-  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
 
   // Extract search query from URL

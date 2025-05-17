@@ -10,6 +10,7 @@ interface Product {
   image: string;
   favorite: boolean;
   category: string; // Категорія з JSON (українською)
+  currency: string; // ← Додано: для коректного виводу валюти
 }
 
 // Мапа категорій для коректного URL
@@ -31,13 +32,14 @@ const CatalogCard: React.FC<Product> = ({
   availability,
   image,
   category,
+  currency, // ← Додано
 }) => {
   const navigate = useNavigate();
-  const categoryUrl = categoryMap[category] || "unknown"; // Перетворюємо категорію для URL
+  const categoryUrl = categoryMap[category] || "unknown";
 
   const handleClick = () => {
-    console.log(`Navigating to: /category/${categoryUrl}/${id}`); // Лог для перевірки
-    navigate(`/category/${categoryUrl}/${id}`); // Переходить на потрібну сторінку
+    console.log(`Navigating to: /category/${categoryUrl}/${id}`);
+    navigate(`/category/${categoryUrl}/${id}`);
   };
 
   const basePath = import.meta.env.BASE_URL;
@@ -48,18 +50,29 @@ const CatalogCard: React.FC<Product> = ({
       onClick={handleClick}
       style={{ cursor: "pointer" }}
     >
-      <img src={`${basePath}${image.slice(1)}`} alt={name} />
+      <img src={`${basePath}${image}`} alt={name} />
       {discount !== undefined && discount > 0 && (
         <span className="discount">- {discount}%</span>
       )}
 
       <h3>{name}</h3>
+
       <p className="price">
-        {price} ₽ {oldPrice && <s>{oldPrice} ₽</s>}
+        {price} {currency}
+        {oldPrice && oldPrice > price && (
+          <>
+            {" "}
+            <s>
+              {oldPrice} {currency}
+            </s>{" "}
+          </>
+        )}
       </p>
+
       <p className={availability ? "available" : "not-available"}>
         {availability ? "В наявності" : "Немає в наявності"}
       </p>
+
       <button className="cart-button">В корзину</button>
     </div>
   );

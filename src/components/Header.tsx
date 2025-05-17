@@ -27,7 +27,6 @@ function Header({}: HeaderProps) {
   const [isModalActive, setIsModalActive] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [isExtraSmall, setIsExtraSmall] = useState(false);
   const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
@@ -43,7 +42,6 @@ function Header({}: HeaderProps) {
     const checkScreenSize = () => {
       const windowWidth = window.innerWidth;
       setIsMobile(windowWidth <= 768);
-      setIsExtraSmall(windowWidth <= 400);
     };
 
     checkScreenSize();

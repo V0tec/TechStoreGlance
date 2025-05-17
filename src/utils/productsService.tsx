@@ -1,4 +1,4 @@
-// src/utils/productsService.js
+// src/utils/productsService.tsx
 import { useEffect, useState } from "react";
 
 export interface Product {
@@ -13,6 +13,32 @@ export interface Product {
   category: string;
   currency: string;
 }
+
+// Define the fallback products array to use when fetch fails
+const FALLBACK_PRODUCTS: Product[] = [
+  {
+    id: 1,
+    name: "Default Product",
+    price: 99.99,
+    availability: true,
+    image: "/placeholder.jpg",
+    favorite: false,
+    category: "Default",
+    currency: "USD",
+  },
+  {
+    id: 2,
+    name: "Backup Product",
+    price: 49.99,
+    oldPrice: 79.99,
+    discount: 38,
+    availability: true,
+    image: "/placeholder.jpg",
+    favorite: false,
+    category: "Default",
+    currency: "USD",
+  },
+];
 
 // Function to search products with better error handling
 export async function searchProducts(query: string): Promise<Product[]> {

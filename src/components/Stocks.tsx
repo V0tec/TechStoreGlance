@@ -13,6 +13,7 @@ interface Product {
   image: string;
   favorite: boolean;
   category: string; // Категорія з JSON (українською/російською)
+  currency: string; // Додаємо поле валюти, яке вимагає CatalogCard
 }
 
 const Stonks: React.FC = () => {
@@ -24,7 +25,9 @@ const Stonks: React.FC = () => {
   }, []);
 
   // Фільтрація товарів, що мають знижку більше 0
-  const discountedProducts = products.filter((product) => product.discount && product.discount > 0);
+  const discountedProducts = products.filter(
+    (product) => product.discount && product.discount > 0
+  );
 
   return (
     <div>

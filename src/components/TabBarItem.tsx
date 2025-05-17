@@ -1,5 +1,3 @@
-import { RefObject, MutableRefObject } from "react";
-
 interface TabBarItemProps {
   name: string;
   image?: string;

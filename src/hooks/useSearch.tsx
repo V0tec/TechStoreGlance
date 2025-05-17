@@ -1,6 +1,12 @@
-// src/hooks/useSearch.js
+// src/hooks/useSearch.tsx
 import { useNavigate, useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
+import {
+  useState,
+  useEffect,
+  ChangeEvent,
+  FormEvent,
+  KeyboardEvent,
+} from "react";
 
 export function useSearch() {
   const navigate = useNavigate();
@@ -17,12 +23,12 @@ export function useSearch() {
   }, [location.search]);
 
   // Handle search input changes
-  const handleSearchInputChange = (e) => {
+  const handleSearchInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
   };
 
   // Handle search form submission
-  const handleSearchSubmit = (e) => {
+  const handleSearchSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (searchQuery.trim()) {
       console.log("Submitting search for:", searchQuery.trim());
@@ -34,7 +40,7 @@ export function useSearch() {
   };
 
   // Handle Enter key press in search field
-  const handleKeyDown = (e) => {
+  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       e.preventDefault();
       if (searchQuery.trim()) {
